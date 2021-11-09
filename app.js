@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded',() => {
 
     const grid = document.querySelector('.grid')
     const resultDisplay = document.querySelector('#result')
+    const statusDisplay = document.querySelector('#status')
     let cardsChosen = []
     let cardsChosenId = []
     let cardsWon = []
@@ -75,10 +76,10 @@ document.addEventListener('DOMContentLoaded',() => {
         if(optionOneId === optionTwoId) {
             cards[optionOneId].setAttribute('src', 'assets/card.png')
             cards[optionTwoId].setAttribute('src', 'assets/card.png')
-            alert('You have clicked the same image!')
+            statusDisplay.textContent = 'You have clicked on the same image'
         }
         else if (cardsChosen[0] === cardsChosen[1]) {
-            alert('You found a match')
+            statusDisplay.textContent = "You found a match, you're almost there!"
             cards[optionOneId].setAttribute('src', 'assets/blank.png')
             cards[optionTwoId].setAttribute('src', 'assets/blank.png')
             cards[optionOneId].removeEventListener('click', flipCard)
@@ -87,13 +88,13 @@ document.addEventListener('DOMContentLoaded',() => {
         } else {
             cards[optionOneId].setAttribute('src', 'assets/card.png')
             cards[optionTwoId].setAttribute('src', 'assets/card.png')
-            alert('Sorry, try again')
+            statusDisplay.textContent = 'Try again!'
         }
         cardsChosen = []
         cardsChosenId = []
         resultDisplay.textContent = cardsWon.length
         if  (cardsWon.length === cardArray.length/2) {
-            resultDisplay.textContent = 'Congratulations! You found them all!'
+            statusDisplay.textContent = 'Congratulations! Things that i love the most are: Programming, espresso, fitness, gaming, travels and food :)'
         }
     }
 
@@ -103,7 +104,7 @@ document.addEventListener('DOMContentLoaded',() => {
         cardsChosen.push(cardArray[cardId].name)
         cardsChosenId.push(cardId)
         this.setAttribute('src', cardArray[cardId].img)
-        if (cardsChosen.length ===2) {
+        if (cardsChosen.length === 2) {
             setTimeout(checkForMatch, 500)
         }
     }
