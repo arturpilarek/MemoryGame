@@ -60,6 +60,10 @@ body {
         grid-template-columns: repeat(3, 100px);
     }
 
+    .main__section {
+        margin-bottom: 0;
+    }
+
     img {
         width: 100px;
         height: 100px;
