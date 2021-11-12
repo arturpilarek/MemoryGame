@@ -38,13 +38,11 @@ body {
 }
 
 .grid {
-
-    display: flex;
-    margin: 0 auto;
-    flex-wrap: wrap;
-    height: 300px;
-    width: 400px;
-    gap: 0.5rem
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    grid-template-columns: repeat(3, 120px);
+    gap: 0.5rem;
 }
 
 @media screen and (max-width: 400px) {
@@ -53,12 +51,18 @@ body {
         font-size: 1.8rem;
     }
 
-    p {
+    .main__section p {
         font-size: 1rem;
+        margin-bottom: 0.25rem;
     }
 
     .grid {
-        transform: scale(0.8);
+        grid-template-columns: repeat(3, 100px);
+    }
+
+    img {
+        width: 100px;
+        height: 100px;
     }
 }
 
